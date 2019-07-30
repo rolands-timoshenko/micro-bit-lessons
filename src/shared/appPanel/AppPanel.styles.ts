@@ -5,6 +5,11 @@ const AppPanelStyles = () => ({
   },
   rounded: {
     borderRadius: 20
+  },
+  titleBox: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center"
   }
 });
 

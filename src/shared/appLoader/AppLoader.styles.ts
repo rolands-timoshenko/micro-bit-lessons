@@ -8,7 +8,7 @@ const AppLoaderStyles = () => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "rgba(255, 255, 255, .5)",
+    backgroundColor: "rgba(255, 255, 255, .6)",
     zIndex: 9999
   }
 });
