@@ -10,7 +10,7 @@ interface IProps {
   onNext: () => void;
 }
 
-const AppActivityNavigation = (props: IProps) => {
+const AppActivityNavigation = (props: IProps): JSX.Element => {
   const { classes, hasNextStep, hasPrevStep, onNext, onPrev } = props;
   return (
     <div className={classes.root}>

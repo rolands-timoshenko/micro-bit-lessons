@@ -4,7 +4,7 @@ interface IProps {
   teacherGuide: any;
 }
 
-const AppTeacherGuide = (props: IProps) => {
+const AppTeacherGuide = (props: IProps): JSX.Element => {
   return <p>Teacher guide comming soon...</p>;
 };
 

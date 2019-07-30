@@ -13,7 +13,7 @@ interface IProps {
   onChange: (evt: any) => void;
 }
 
-const AppActivitySelector = (props: IProps) => {
+const AppActivitySelector = (props: IProps): JSX.Element => {
   const { classes, items, selectedValue, onChange } = props;
   return (
     <div className={classes.root}>

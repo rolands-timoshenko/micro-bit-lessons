@@ -1,5 +1,5 @@
-import React, { ChangeEvent } from "react";
-import { Select, MenuItem } from "@material-ui/core";
+import { MenuItem, Select } from "@material-ui/core";
+import React from "react";
 
 interface IProps {
   items: {
@@ -10,7 +10,7 @@ interface IProps {
   onChange: (evt: any) => void;
 }
 
-const AppSelect = (props: IProps) => {
+const AppSelect = (props: IProps): JSX.Element => {
   const { selectedValue, items, onChange } = props;
   return (
     <Select value={selectedValue} onChange={onChange}>

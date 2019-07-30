@@ -4,10 +4,16 @@ import AppActivity from "../appActivity/AppActivity";
 import AppTeacherGuide from "../appTeacherGuide/AppTeacherGuide";
 
 interface IProps {
-  lesson: any;
+  lesson: {
+    introduction?: any;
+    teacherGuide?: any;
+    activity?: {
+      steps: any;
+    };
+  };
 }
 
-const AppLesson = (props: IProps) => {
+const AppLesson = (props: IProps): JSX.Element => {
   const { lesson } = props;
   return (
     <>

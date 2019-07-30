@@ -11,8 +11,6 @@ export let makecodeUrl: string = "https://makecode.microbit.org/";
 // force language if needed
 export let lang: string | undefined = undefined;
 
-const RENDER_DEBOUNCE_TIMEOUT = 1000;
-
 interface RenderBlocksRequestMessage {
   type: "renderblocks";
   id: string;
@@ -65,7 +63,7 @@ function sendRequest(req: RenderBlocksRequestMessage) {
 // listen for messages
 function handleMessage(ev: MessageEvent) {
   let msg = ev.data;
-  if (msg.source != "makecode") return;
+  if (msg.source !== "makecode") return;
 
   switch (msg.type) {
     case "renderready":
@@ -147,10 +145,10 @@ class AppSnippet extends React.Component<SnippetProps, SnippetState> {
 
   componentDidUpdate(prevProps: SnippetProps) {
     if (
-      this.props.code != prevProps.code ||
-      this.props.packageId != prevProps.packageId ||
-      this.props.package != prevProps.package ||
-      this.props.snippetMode != prevProps.snippetMode
+      this.props.code !== prevProps.code ||
+      this.props.packageId !== prevProps.packageId ||
+      this.props.package !== prevProps.package ||
+      this.props.snippetMode !== prevProps.snippetMode
     ) {
       this.renderProps();
     }
@@ -192,7 +190,7 @@ class AppSnippet extends React.Component<SnippetProps, SnippetState> {
     );
 
   render(): JSX.Element {
-    const { code, loaderCmp, classes } = this.props;
+    const { code, classes } = this.props;
     const { uri, width, height, rendering, error } = this.state;
     const loading = !rendererReady;
     const err = error || rendererError;

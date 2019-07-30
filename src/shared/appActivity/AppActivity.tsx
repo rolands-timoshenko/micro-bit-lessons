@@ -5,7 +5,6 @@ import AppSnippet from "../appSnippet/AppSnippet";
 import AppActivitySelector from "./appActivitySelector/AppActivitySelector";
 import AppActivityNavigation from "./appActivityNavigation/AppActivityNavigation";
 
-// TODO: could be
 const stepAsText = [
   "one",
   "two",
@@ -20,7 +19,7 @@ const stepAsText = [
 
 // TODO: improve to handle bigger numbers
 // Also could be moved into utils
-const tranformNumberIntoText = (num: number) =>
+const tranformNumberIntoText = (num: number): string =>
   stepAsText[num] ? stepAsText[num] : "unknown";
 
 interface IProps {
@@ -39,19 +38,19 @@ class AppActivity extends Component<IProps, IState> {
     step: 0
   };
 
-  handleChangeStep = (evt: any) => {
+  handleChangeStep = (evt: any): void => {
     this.setState({
       step: evt.target.value * 1
     });
   };
 
-  generateSelectItems = () =>
-    this.props.steps.map((step, index) => ({
+  generateSelectItems = (): { value: string; name: string }[] =>
+    this.props.steps.map((_step, index) => ({
       value: index.toString(),
       name: `${index + 1}`
     }));
 
-  renderActiveStep = (step: number) => {
+  renderActiveStep = (step: number): JSX.Element => {
     return (
       <Typography style={{ textTransform: "capitalize" }} variant="h5">
         Step {tranformNumberIntoText(step)}
@@ -59,27 +58,27 @@ class AppActivity extends Component<IProps, IState> {
     );
   };
 
-  hasNextStep = () => {
+  hasNextStep = (): boolean => {
     return this.state.step + 1 < this.props.steps.length;
   };
 
-  hasPrevStep = () => {
+  hasPrevStep = (): boolean => {
     return this.state.step !== 0;
   };
 
-  handleNext = () => {
+  handleNext = (): void => {
     this.setState(prevState => ({
       step: prevState.step + 1
     }));
   };
 
-  handlePrev = () => {
+  handlePrev = (): void => {
     this.setState(prevState => ({
       step: prevState.step - 1
     }));
   };
 
-  render() {
+  render(): JSX.Element {
     const text = this.props.steps[this.state.step].text;
     const javaScriptBlocks = this.props.steps[this.state.step].javaScriptBlocks
       ? this.props.steps[this.state.step].javaScriptBlocks

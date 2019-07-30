@@ -10,10 +10,10 @@ interface IProps {
   children?: any;
 }
 
-const AppPanel = (props: IProps) => {
+const AppPanel = (props: IProps): JSX.Element => {
   const [open, setOpen] = useState(false);
 
-  const handleOpen = () => {
+  const handleOpen = (): void => {
     setOpen(!open);
   };
 
